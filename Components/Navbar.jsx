@@ -9,8 +9,6 @@ import { Container } from 'react-bootstrap'
 
 export default function Navbar() {
      return (
-          <Container>
-               <div>Navbar</div>
-          </Container>
+          <div style={{ postition: 'fixed' }}>Navbar</div>
      )
 }
