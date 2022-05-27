@@ -1,9 +1,9 @@
 // module designed by himanshu patel , teach module
 import React from 'react'
+// functional behavior of the compoent 
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 // importing the bootstrap componets 
-
 import { Container, Navbar, Nav, Col, Row } from 'react-bootstrap'
 
 export default function NavbarComponent() {
@@ -29,15 +29,17 @@ export default function NavbarComponent() {
                          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                          <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="me-auto">
-                                   <Nav.Link onClick={() => router.push('/about')}> Features</Nav.Link>
-                                   <Nav.Link >Pricing</Nav.Link>
+                                   <Link href="/"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}> Home </a></Link>
+                                   <Link href="/blogs"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Blogs </a></Link>
+                                   <Link href="/creatorspage"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Creators's page</a></Link>
+                                   <Link href="/about"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>About </a></Link>
                               </Nav>
                               <Nav>
-                                   <Nav.Link >More deets</Nav.Link>
+                                   <Link href="/loginsignup"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Login /Sign up </a></Link>
                               </Nav>
-                         </Navbar.Collapse>
-                    </Container>
-               </Navbar>
+                         </Navbar.Collapse >
+                    </Container >
+               </Navbar >
           </div >
      )
 }
