@@ -4,7 +4,8 @@ import Head from 'next/head'
 import { Container } from 'react-bootstrap'
 // importing the components desinged by us
 import Navbar from '../Components/Navbar'
-
+import Left from '../Components/Left'
+import Right from '../Components/Right'
 // main exporting component
 export default function Home() {
   //  required fuctions for the component
@@ -23,7 +24,8 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-
+        <Left />
+        <Right />
       </Container>
 
     </div>

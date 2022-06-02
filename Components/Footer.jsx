@@ -2,11 +2,18 @@ import React from 'react'
 import Image from 'next/Image'
 // import InstagramLogo from '../public/Images/InstagramLogo.webp'
 import { Container, Row, Col } from 'react-bootstrap'
+
+
+// css component
+
+const blockStyle = { color: 'white', fontWeight: 'bolder' };
+const borderLeft = { borderLeft: '2px solid white', marginLeft: '20px' };
+
+
+// change the css for the mobile view
 export default function Footer() {
 
 
-     const blockStyle = { color: 'white', fontWeight: 'bolder' };
-     const borderLeft = { borderLeft: '2px solid white', marginLeft: '20px' };
 
      return (
           <Container className="bg-dark" fluid style={blockStyle}>
