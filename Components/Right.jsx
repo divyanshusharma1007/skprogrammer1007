@@ -1,25 +1,26 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
+import Description from './Description'
 
 export default function Right() {
+     const [width, setWidth] = useState(0);
+     const arr = [
+          { heading: "hello", description: "hello world" },
+          { heading: "hello", description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae incidunt quam fuga, quo architecto totam quis? Ullam eum accusamus voluptate reiciendis aperiam." },
+          { heading: "hello", description: "hello world" }
+     ];
+
+
+     useEffect(() => { setWidth(window.innerWidth) })
      return (
-          <div className="" style={{ width: '38vw' }}>
-               <div className="p-3 mr-3 border border-3 m-3 border-secondary" style={{ borderRadius: '54px 0% 54px 0%' }}>
+          <div className="" style={{ width: '38vw', display: `${width < 600 ? "none" : "block"}` }}>
+               <div className="p-3 mr-3 border border-3 m-3 border-secondary" style={{ borderRadius: '54px 0% 54px 0%', backgroundColor: 'white' }}>
                     <h2 className="mx-sm-3">Welcome</h2>
-                    <p><strong className="" style={{
-                         fontSize: "20px"
-                         ,
-                    }}>Learner  </strong>
-                         Sk-Programmer , The main aim of the sk programmer is to make the coding eassy for the programmmer , It also helps the Student of <strong> CS/IT </strong> to complete their Studies with Great skills of the learing . Here you found the blogs related to the codes and there description.</p>
-                    <p><strong className="" style={{
-                         fontSize: "23px"
-                         ,
-                    }}>Creator </strong>
-                         Sk-programmer, </p>
-                    <p><strong className="" style={{
-                         fontSize: "23px"
-                         ,
-                    }}>FreeLancer  </strong>
-                    </p>
+                    {
+                         arr.map((obj, i) => {
+                              return <Description node={obj} key={i} />
+                         })
+                    }
+
                </div>
           </div>
      )

@@ -9,7 +9,7 @@ import { Container, Navbar, Nav, Col, Row } from 'react-bootstrap'
 export default function NavbarComponent() {
      const router = useRouter()
      return (
-          <div className="position-fixed" style={{ width: '100%', height: "100%" }}>
+          <div className="position-fixed" style={{ width: '98.5%', height: "100%" }}>
                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Container>
                          <Navbar.Brand >
