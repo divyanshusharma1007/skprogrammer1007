@@ -15,18 +15,20 @@ export default function Layout({ children }) {
      })
      return (
           <>
-               <Container fluid className="position-fixed" style={{ top: '40px' }}>
+               <Container fluid className="position-fixed" style={{
+                    top: '40px', zIndex: -50, background: "#6162ff",
+               }}>
                     <Image src={img} width={width} height={height} />
                </Container>
-               <Container fluid style={{ position: "absolute", zIndex: 1, width: "100%" }}>
-                    <Navbar style={{ zIndex: 5000, }} />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <main >{children}</main>
-                    <Footer />
-               </Container>
+               {/* <Container style={{ position: "absolute", zIndex: 1, width: "120%" }}> */}
+               <Navbar style={{ zIndex: 5000, }} />
+               <br />
+               <br />
+               <br />
+               <br />
+               <main >{children}</main>
+               <Footer style={{ zIndex: 5000, }} />
+               {/* </Container> */}
           </>)
 
 }
