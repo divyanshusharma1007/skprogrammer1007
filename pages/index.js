@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Right from '../Components/Right'
 import Left from '../Components/Left'
+
 export default function Home() {
   return (
     <div >
