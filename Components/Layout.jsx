@@ -14,21 +14,17 @@ export default function Layout({ children }) {
 
      })
      return (
-          <>
-               <Container fluid className="position-fixed" style={{
-                    top: '40px', zIndex: -50, background: "#6162ff",
-               }}>
+          <div style={{ height: "100vh" }}>
+               <div className='position-fixed' style={{ zIndex: -10 }}>
                     <Image src={img} width={width} height={height} />
-               </Container>
-               {/* <Container style={{ position: "absolute", zIndex: 1, width: "120%" }}> */}
-               <Navbar style={{ zIndex: 5000, }} />
-               <br />
-               <br />
-               <br />
-               <br />
-               <main >{children}</main>
-               <Footer style={{ zIndex: 5000, }} />
-               {/* </Container> */}
-          </>)
+               </div>
+               <div className='my-5'>
+                    <br />
+                    <br />
+                    <main className="my-5">{children}</main>
+                    <Footer />
+               </div>
+          </div>
+     )
 
 }

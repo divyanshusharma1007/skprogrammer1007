@@ -16,24 +16,18 @@ export default function adminLayout({ children }) {
      })
 
      return (
-          <div>
-               <Container fluid className="position-fixed" style={{
-                    top: '40px', zIndex: -50, background: "#6162ff",
-               }}>
-                    <Image src={img} width={width} height={height} />
-               </Container>
-               {/* <Container style={{ position: "absolute", zIndex: 1, width: "120%" }}> */}
-               <Navbar style={{ zIndex: 5000, }} />
-               <br />
-               <br />
-               <br />
-               <br />
-               <Container className="d-flex">
-                    <AdminLeft />
-                    <main style={{ marginLeft: "20%", zIndex: 10 }}>{children}</main>
-               </Container>
-               <Footer style={{ zIndex: 5000, }} />
-               {/* </Container> */}
+          <div style={{ height: "100vh" }}>
+          <div className='position-fixed' style={{ zIndex: -10 }}>
+               <Image src={img} width={width} height={height} />
           </div>
+          <div >
+          <AdminLeft />
+               <br />
+               <br />
+               <main style={{width:"70%",left:"25%",position:'relative'}} className="my-5">{children}</main>
+               <Footer />
+          </div>
+     </div>
+
      )
 }

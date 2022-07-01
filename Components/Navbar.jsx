@@ -9,7 +9,7 @@ import { Container, Navbar, Nav, Col, Row } from 'react-bootstrap'
 export default function NavbarComponent() {
      const router = useRouter()
      return (
-          <div className="position-fixed" style={{ width: '100%', height: "100%" }}>
+          <div  style={{ width: '100%',top:'0px', height: "100%" }}>
                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Container>
                          <Navbar.Brand >
@@ -31,11 +31,11 @@ export default function NavbarComponent() {
                               <Nav className="me-auto">
                                    <Link href="/"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}> Home </a></Link>
                                    <Link href="/blogs"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Blogs </a></Link>
-                                   <Link href="/creatorspage"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Creators's page</a></Link>
+                                   <Link href="/admin/home"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Creators's page</a></Link>
                                    <Link href="/about"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>About </a></Link>
                               </Nav>
                               <Nav>
-                                   <Link href="/loginsignup"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Login /Sign up </a></Link>
+                                   <Link href="/login"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Login /Sign up </a></Link>
                               </Nav>
                          </Navbar.Collapse >
                     </Container >

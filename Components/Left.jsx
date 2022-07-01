@@ -4,7 +4,7 @@ import TopBlogs from './TopBlogs'
 import LeftAnimation from '../Components/LeftAnimation'
 export default function Left() {
      return (
-          <div style={{ color: 'white' }}>
+          <div style={{ color: 'white',zIndex: -1 }}>
                < LeftAnimation />
                <OurTop />
                <TopBlogs />
