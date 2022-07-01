@@ -6,7 +6,7 @@ import _ from "lodash";
 export default function home() {
 
   return (
-    <Container className="mx-3" style={{background:'white',widht:'60%',border:"3px solid gray",borderRadius:"8px"}}>
+    <Container className="mx-3" style={{background:'white',widht:'60%',border:'3px solid gray',borderRadius:'8px'}}>
       <h1>hello world</h1>
       AdminLeft
       AdminLeftAdminLeftAdminLeftAdminLeftAdminLef

@@ -30,7 +30,7 @@ export default function homeright() {
           <Form.Label>Description</Form.Label>
           <Form.Control
             as="textarea"
-            placeholder="Enter your text here"
+            placeholder='Enter your text here'
             rows={2}
           />
         </Form.Group>
