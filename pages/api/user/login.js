@@ -7,7 +7,7 @@ import joi from 'joi'
 const bcrypt=require('bcryptjs')
 
 
-export default  async function handler(req, res) {
+const handler=  async (req, res)=> {
   // validation 
   const schema = joi.object({
     password: joi.string(),
@@ -21,7 +21,7 @@ export default  async function handler(req, res) {
 
   const errors = schema.validate(requestObj);
 const {email,password}=requestObj;
-console.log(requestObj,"request object at the backend ")
+//console.log(requestObj,"request object at the backend ")
   if (errors?.details?.length > 0) {
     return res.status(400).json({ status: false, errors: "some errors occured" });
   }
@@ -30,7 +30,7 @@ console.log(requestObj,"request object at the backend ")
     const { User } = AllCollections();
     try {
       let user = await User.findOne({ email })
-      console.log(user,"searcing user backend \n\n\n\n");
+      //console.log(user,"searcing user backend \n\n\n\n");
       if (!user) {
         return res.status(400).json({ status: false, error: "Please try to log in with the correct creditianatials" })
       }
@@ -49,10 +49,12 @@ console.log(requestObj,"request object at the backend ")
       }
       // sending the auth token with sign in 
       const authtoken = jwt.sign(data, Jwt_secrtet)
-      // console.log("done true")
+      // //console.log("done true")
       res.status(200).json({ status: true, authtoken,authby:"USER" })
     } catch (error) {
       res.status(500).send({ status: false, error: "Some Error occured" })
     }
   }
 }
+
+export default Connection(handler)

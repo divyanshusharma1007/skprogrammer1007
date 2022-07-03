@@ -2,7 +2,7 @@ import axios from "axios";
 import * as ActionTypes from '../ActionTypes'
 import {toast } from 'react-toastify'
 export default async (formData,value) => {
-    console.log(formData.image)
+    //console.log(formData.image)
     const a = await axios.post(`http://localhost:3000/api/${value}/create`, formData)
     if(a.data.status){
 

@@ -7,7 +7,7 @@ import joi from 'joi'
 const bcrypt=require('bcryptjs')
 
 
-export default  async function handler(req, res) {
+const handler=async(req, res)=> {
   // validation 
   const schema = joi.object({
     password: joi.string(),
@@ -47,10 +47,12 @@ const {email,password}=requestObj;
       }
       // sending the auth token with sign in 
       const authtoken = jwt.sign(data, Jwt_secrtet)
-      res.status(200).json({ status: true, authtoken,authby:"BLOGER" ,data:bloger})
+      res.status(200).json({ status: true, authtoken,authby:"BLOGER"})
     } catch (error) {
-      console.log(error,"genrated error");
+      //console.log(error,"genrated error");
       res.status(500).send({ status: false, error: "Some Error occured" })
     }
   }
 }
+
+export default Connection(handler);

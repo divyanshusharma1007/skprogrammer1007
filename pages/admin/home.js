@@ -63,7 +63,7 @@ gen
 the quantities, characters, or symbols on which operations are performed by a computer, which may be stored and transmitted in the form of electrical signals and recorded on magnetic, optical, or mechanical recording media.
 PHILOSOPHY
 things known or assumed as facts, making the basis of reasoning or calculation.
-
+AdminLeft AdminLeftAdminLeftAdminLeftAdminLeftAdminLef AdminLef AdminLeft AdminLeft AdminLeft AdminLeft AdminLeft AdminLeft AdminLeftAdminLeft lorem56 h5 dfjjashf\ jfjsfkasj fkjashfkjashfjj AdminLeft AdminLeftAdminLeftAdminLeftAdminLeftAdminLeft AdminLeft AdminLeft AdminLeft AdminLeft AdminLeft AdminLeft AdminLeft AdminLeftAdminLeft facts and statistics collected together for reference or analysis. "there is very little data available" Similar: facts figures statistics details particulars specifics features information evidence intelligence material background input proof fuel ammunition statement report return dossier file documentation archive(s) info dope low-down deets gen the quantities, characters, or symbols on which operations are performed by a computer, which may be stored and transmitted in the form of electrical signals and recorded on magnetic, optical, or mechanical recording media. PHILOSOPHY things known or assumed as facts, making the basis of reasoning or calculation.
     </Container>
   );
 }

@@ -7,7 +7,7 @@ import joi from 'joi'
 const bcrypt=require('bcryptjs')
 
 
-export default  async function handler(req, res) {
+const  handler = async(req, res)=> {
   // validation 
   const schema = joi.object({
     password: joi.string(),
@@ -53,3 +53,6 @@ const {email,password}=requestObj;
     }
   }
 }
+
+
+export default Connection(handler)

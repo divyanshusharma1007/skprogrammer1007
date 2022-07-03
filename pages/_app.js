@@ -9,29 +9,22 @@ import {store} from '../store/store'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavbarComponent from "../Components/Navbar";
-
+import BlogerLayout from '../Components/blogerLayout'
 // import CloudinaryContext from 'cloudinary-react'
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const conditionAdmin = router.asPath.toLowerCase().includes("/admin");
+  const conditionBloger = router.asPath.toLowerCase().includes("/bloger");
+  console.log(conditionBloger)
   return (
-    // <CloudinaryContext cloudName="dboiupu8k">
-
+  
     <Provider store={store}>
       <div>
         <ToastContainer />
         <div className="position-fixed" style={{zIndex:500,width:"100vw",top:"0px"}}>
         <NavbarComponent/>
         </div>
-        {conditionAdmin ? (
-          <AdminLayout>
-            <Component {...pageProps} />
-          </AdminLayout>
-        ) : (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        )}
+        {conditionAdmin ? (<AdminLayout><Component {...pageProps} /></AdminLayout>) : conditionBloger?(<BlogerLayout><Component {...pageProps} /></BlogerLayout>):(<Layout><Component {...pageProps} /></Layout>)}
       </div>
     </Provider>
     // </CloudinaryContext>

@@ -18,9 +18,10 @@ const handler = async (req, res) => {
     password: req.body.password,
     email: req.body.email,
     contactNumber: req.body.contactNumber,
+    gitHub:req.body.gitHub,  
   };
   const errors = schema.validate(requestObj);
-  console.log(errors, "my errors ");
+  //console.log(errors, "my errors ");
   if (errors?.details?.length > 0) {
     return res
       .status(400)
@@ -56,6 +57,7 @@ const handler = async (req, res) => {
         const authtoken = jwt.sign(data, Jwt_secrtet);
         res.status(200).json({ status: true, authtoken: authtoken });
       } catch (err) {
+        console.log(err)
         res.status(200).json({ status: false, error: "Some Error occured" });
       }
     }

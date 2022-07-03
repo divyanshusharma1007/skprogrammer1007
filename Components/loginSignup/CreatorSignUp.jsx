@@ -24,7 +24,6 @@ export default function UserSignUp() {
     let uploadImage = async (e) => {
         setImageStatus(true);
         const form = new FormData();
-        console.log("upload image is running")
         let file = e.target.files[0];
         form.append('file', file);
         const reader = new FileReader();
@@ -38,7 +37,7 @@ export default function UserSignUp() {
             body: form
         });
         res = await res.json();
-        console.log(res);
+        //console.log(res);
         const newState = _.cloneDeep(formData);
         newState['image'] = res.secure_url
         setFromData(newState);

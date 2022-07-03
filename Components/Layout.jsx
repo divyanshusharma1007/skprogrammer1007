@@ -20,8 +20,7 @@ export default function Layout({ children }) {
                </div>
                <div className='my-5'>
                     <br />
-                    <br />
-                    <main className="my-5">{children}</main>
+                    <main className='my-3'>{children}</main>
                     <Footer />
                </div>
           </div>

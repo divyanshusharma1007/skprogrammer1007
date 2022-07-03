@@ -31,7 +31,6 @@ export default function UserSignUp() {
    let uploadImage = async (e) => {
     setImageStatus(true)
        const form=new FormData();
-        console.log("upload image is running")
         let file = e.target.files[0];
         form.append('file',file);
         const reader=new FileReader();
@@ -45,16 +44,13 @@ export default function UserSignUp() {
             body:form
         });
         res=await res.json();
-        console.log(res);
         const newState=_.cloneDeep(formData);
         newState['image']=res.secure_url
         setFromData(newState);
         toast("iamage saved successfully")
-        console.log(formData);
         setImageStatus(false)
     }
 
-console.log(formData);
     return (
       <>
             <Row >
@@ -125,7 +121,6 @@ console.log(formData);
                 <Col className="mt-3">
                     <Link href="/login"><h4>Already had account : <Link href="/login">Sign in</Link></h4></Link>
                     <Button variant="secondary " type="submit" className={`mt-5 ${imgStatus?'disabled':''}`} style={{ width: "100%", marginTop: "3px" }} onClick={async () => { dispatch(await signUp(formData,'user')) }}>signed up</Button>
-                    
                 </Col>
             </Row>
      </>
