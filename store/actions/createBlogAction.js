@@ -1,17 +1,19 @@
-import axios from "axios";
-import * as ActionTypes from "../ActionTypes";
-import { toast } from "react-toastify";
+// Create blog do not reduce in any state 
+import { toast } from "react-toastify"
+import { useSelector } from "react-redux"
+import axios from "axios"
+export default async (data,authtoken)=>{
+     console.log(authtoken);
 
-// create blog action 
-export default async () => 
-{
-  try{
-    const stateData = await axios.get(`http://localhost:3000/api/authority/homeright`);
-      //console.log(stateData.status);
-      if(stateData.data.success){
-        return { payload: stateData.data, type: ActionTypes.HOME_RIGHT }
-      }
-    }catch(e){
-      return { payload:InitialState, type: ActionTypes.LOG_IN }
+     const headers={
+          "auth-token":authtoken
+     }
+    const res=await  axios.post("http://localhost:3000/api/bloger/createblog",data,{headers});
+    if(res.status==200){
+     toast("successfull")
+    }else{
+     toast("some error in creating your blog ")
     }
-};
+    console.log(res);
+
+}
