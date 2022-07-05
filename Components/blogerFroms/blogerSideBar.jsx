@@ -13,7 +13,7 @@ export default function blogerSideBar() {
                 <h3 className='p-3'>Welcome Bloger !</h3>
                 <hr  className='text-center mx-2' style={{color:'black',height:'5px',borderRadius:'10px'}} />
                 <div className="text-white mx-3 py-2">
-                    <Link className="my-3" href="/bloger/updateme" ><h4 style={{cursor:'pointer'}}>My Profile</h4></Link>
+                    <Link className="my-3" href="/bloger/profile" ><h4 style={{cursor:'pointer'}}>My Profile</h4></Link>
                     <Link className="my-3" href="/bloger/create" ><h4 style={{cursor:'pointer'}}>Create Blog</h4></Link>
                     <Link className="my-3" href="/bloger/showblogs" ><h4 style={{cursor:'pointer'}}>My Blogs</h4></Link>
                 </div>

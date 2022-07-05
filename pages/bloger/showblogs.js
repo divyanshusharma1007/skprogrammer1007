@@ -31,6 +31,7 @@ export default function showblogs() {
     <br/>
     <br/>
     <br/>
+    <br/>
       <div className="mx-2 my-3 px-3" style={glassMorphism}>
         <Row className="text-center py-3 border-bottom border-5 border-secondary fw-bolder text-light  mx-2">
           <Col>Id</Col>

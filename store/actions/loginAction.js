@@ -11,7 +11,6 @@ export default async (data, value) => {
       }
     }catch(e){
       toast("failed");
-      //console.log(e);
       return { payload:{authby:'',authtoken:'',status:false}, type: ActionTypes.LOG_IN }
     }
 };

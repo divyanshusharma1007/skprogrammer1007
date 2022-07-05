@@ -1,7 +1,6 @@
 import axios from 'axios'
 import {toast} from 'react-toastify'
 export default async(authtoken,fun)=>{ 
-     console.log(authtoken);
      const headers={
           "auth-token":authtoken
      }

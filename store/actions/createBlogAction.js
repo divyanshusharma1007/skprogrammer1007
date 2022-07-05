@@ -2,9 +2,8 @@
 import { toast } from "react-toastify"
 import { useSelector } from "react-redux"
 import axios from "axios"
-export default async (data,authtoken)=>{
-     console.log(authtoken);
 
+export default async (data,authtoken)=>{
      const headers={
           "auth-token":authtoken
      }

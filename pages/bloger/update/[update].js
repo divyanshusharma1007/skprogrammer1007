@@ -6,6 +6,7 @@ import glassMorphism from "../../../helpers/glassMorphism";
 import { useRouter } from "next/router";
 import { Row, Col } from "react-bootstrap";
 import fetchBlogAction from "../../../store/actions/fetchBlogAction";
+import updateBlog from "../../../store/actions/updateBlogAction";
 export default function createblog() {
   const router = useRouter();
   const [formData, setFormData] = useState();
@@ -20,9 +21,11 @@ export default function createblog() {
     console.log(router.query, 'running fetch blogs');
     fetchBlogAction(router.query.update, setFormData);
   };
+  const state=useSelector(state=>state.login)
   useEffect(FetchBlogs, []);
   const onUpdate = () => {
-    console.log(formData)
+    console.log(state);
+    updateBlog(formData,state?.authtoken)
   };
 
   return (

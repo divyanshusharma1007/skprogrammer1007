@@ -12,9 +12,9 @@ export default function blogerMyBlogsRow({ data,setDescBlog }) {
         <Col className="px-2 text-center" >{data.date.split('T')[0]}</Col>
         <Col className="px-2 text-center">{data.aproved ? 'True' : 'False'}</Col>
         <Col>
-        <DropdownButton id="dropdown-basic-button" title="Other">
+        <DropdownButton variant='secondary' id="dropdown-basic-button" title="Other">
           <Dropdown.Item onClick={()=>setDescBlog(data)} >View Details</Dropdown.Item>
-          <Dropdown.Item> <Link href={`/bloger/update/${data._id}`}>Update</Link></Dropdown.Item>
+          <Dropdown.Item > <Link href={`/bloger/update/${data._id}`}><h6 className="text-dark" >Update</h6></Link></Dropdown.Item>
         </DropdownButton>
         </Col>
       </Row>

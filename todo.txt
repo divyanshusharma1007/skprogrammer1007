@@ -1,0 +1,18 @@
+all comments on the blog
+particular blog page
+bloger profile 
+approve blog admin
+front page 
+like comment on the blog 
+creators page for user or other 
+private routes 
+change button and task when blger loged in 
+
+already done
+
+login sign up 
+home page right 
+bloger my blogs 
+update blog bloger
+crate blog bloger
+ 
