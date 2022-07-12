@@ -10,6 +10,8 @@ const handler = async (req, res) => {
     const data = await Bloger.findById(bloger.id).select("-password");
     console.log(data);
     res.json({data});
-  } catch (e) {}
+  } catch (e) {
+    res.json("error occured")
+  }
 };
 export default Connection(handler);

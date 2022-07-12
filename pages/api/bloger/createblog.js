@@ -11,11 +11,13 @@ const handler = async (req, res) => {
   });
   // fetching the bloger
   const Bloger = await FetchBloger(req, res);
+  console.log(Bloger)
   const { Blogs } = allModels();
   try {
     const blog1 = await Blogs.findOne({
       description: req.body.description,
     });
+    console.log(blog1,req.body)
     if (blog1) {
       res.send("blog aready exists");
     } else {
