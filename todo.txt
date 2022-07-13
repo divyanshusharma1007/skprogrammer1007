@@ -1,18 +1,12 @@
-all comments on the blog
-particular blog page
-bloger profile 
-approve blog admin
-front page 
-like comment on the blog 
-creators page for user or other 
-private routes 
-change button and task when blger loged in 
+like and comment section of all threes
+blogs page
+open blog 
+adding cke editor 
+delete blog by admin
+home page 
+about page 
+complete responsive design
+make routes private some routes 
 
-already done
-
-login sign up 
-home page right 
-bloger my blogs 
-update blog bloger
-crate blog bloger
- 
+//not to done Now 
+responsive desing 

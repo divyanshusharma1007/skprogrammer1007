@@ -1,3 +1,5 @@
+// add bloger data here from fetch myself
+
 import React from 'react'
 import glassMorphism from '../../helpers/glassMorphism'
 import Image from 'next/image'

@@ -1,21 +1,22 @@
 const jwt = require("jsonwebtoken");
 const Jwt_secrtet = "sk-programmer";
+// check it 
 const FetchBloger = (req, res) => {
   const jwt = require("jsonwebtoken");
   const Jwt_secrtet = "sk-programmer";
   const token = req.headers["auth-token"];
-  console.log(token);
   if (!token) {
     
       res
       .status(400)
       .send({ status: false, error: "Please Authenticate using valid token" });
-      return undefined;
+      return undefined ;
   }
   try {
     const data = jwt.verify(token, Jwt_secrtet);
-    return data.bloger;
+    return data.authority;
   } catch (error) {
+    console.log(error)
    res
       .status(401)
       .send({ error: "please authenticate using a valid token" });

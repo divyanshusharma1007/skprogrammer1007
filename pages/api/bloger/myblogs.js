@@ -5,7 +5,6 @@ import joi from "joi";
 const handler = async (req, res) => {
   const Bloger = FetchBloger(req,res);
   const { Blogs } = allModels();
-  console.log(Bloger)
   try {
     const myblogs = await Blogs.find({blogerid:Bloger.id});
     console.log(myblogs);

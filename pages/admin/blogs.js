@@ -1,11 +1,66 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Container, Row, Col, Dropdown } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import fetchallblogsAction from '../../store/actions/fetchallblogsAction'
+import { Form } from 'react-bootstrap'
+const RowData = ({ blog }) => {
 
-import { Container } from 'react-bootstrap'
-export default function blogs() {
      return (
+          <Row className="mt-3">
+               <Col style={{ overflow: 'auto' }}>{blog?._id || "noen"}</Col>
+               <Col>{blog?.authorName || "noen"}</Col>
+               <Col>{blog?.programmingLanguage || "noen"}</Col>
+               <Col>{blog?.title || "none"}</Col>
+               <Col>{blog?.aproved || "noen"}</Col>
+               <Col>
+                    <Dropdown className="my-2">
+                         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                              Dropdown Button
+                         </Dropdown.Toggle>
+                         <Dropdown.Menu>
 
-          <div>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est odio veritatis impedit? Quasi aspernatur voluptate, est repellat quos hic necessitatibus, eligendi nulla non aperiam quidem doloribus labore iure iste sapiente dignissimos nisi? Magni adipisci neque eligendi vero, omnis incidunt beatae expedita dolorum sapiente possimus voluptate sed, esse dignissimos impedit itaque molestias necessitatibus autem magnam, fugiat in veritatis dolorem vel nisi. Eaque blanditiis sint quasi. Mollitia dolor blanditiis itaque tempora illum autem eum. Id quis voluptatibus magni tempore, reiciendis ut suscipit ipsam dolor nobis similique molestiae excepturi non optio hic rerum aliquid itaque atque? Nisi explicabo ab maiores perferendis id distinctio odit, harum at quia eaque repudiandae voluptatibus unde, vero doloribus! Enim quos a vel soluta tempore inventore consequatur. Facilis, repellat. Saepe esse amet omnis numquam quos reprehenderit, et cum voluptas quod temporibus quis, necessitatibus hic odit assumenda eveniet alias tenetur ea aspernatur expedita recusandae quasi ut. Facilis blanditiis obcaecati velit ut, consequatur voluptas nihil numquam ea pariatur libero eos aliquid consectetur expedita ex qui ipsa dolor itaque voluptatum tempora unde facere! Praesentium dolore suscipit architecto harum molestiae soluta natus magni, amet reiciendis deserunt accusantium ducimus fuga minima unde, sequi vel minus itaque? Obcaecati nisi fuga amet dolor, quas quasi sint velit expedita distinctio perferendis ab perspiciatis explicabo natus quibusdam culpa sunt repellendus ullam quae aliquam vel? Magnam illum iusto commodi rerum pariatur vitae ad assumenda accusamus doloribus! Tenetur debitis molestias perferendis possimus sit neque excepturi expedita totam vero dignissimos. Fugiat, numquam minima odio voluptatibus cumque excepturi suscipit eos? Blanditiis rem quidem sunt eos itaque doloribus nesciunt nostrum culpa in totam necessitatibus reiciendis deleniti, quisquam veritatis, voluptatum nisi a velit aliquam. Illo eligendi earum officiis voluptatem dolores nisi velit. Harum, commodi accusamus? Quasi accusantium ducimus hic dolores, debitis voluptate minus earum odio harum corrupti vitae minima in mollitia nesciunt, obcaecati sapiente? Suscipit eos quis dolor mollitia iste minus cum velit maxime omnis vel laborum culpa dolores modi temporibus quos at, minima animi ea hic! Aut, magnam non repellendus reiciendis alias eligendi rem eum reprehenderit sed! Adipisci.
-          </div>
+                              <Link href={`/admin/update/${blog?._id}`}>
+                                   <h5 className="mx-3 text-decoration-none">
+                                        Update
+                                   </h5>
+                              </Link>
+                              <h5 className='mx-3'> Delete Blog</h5>
+                         </Dropdown.Menu>
+                    </Dropdown>
+               </Col>
+          </Row >
+     )
+}
+export default function blogs() {
+     const [data, setData] = useState([])
+     const state = useSelector(state => state?.login)
+     const FetchBlogs = () => {
+          console.log(state)
+          fetchallblogsAction(state?.authtoken, setData);
+     };
+     console.log(data)
+     useEffect(FetchBlogs,[])
+     return (
+          <>
+               <Container className="bg-white text-secondary fw-bold mx-3 border border-secondary border-3 rounded-3">
+                    <Row className="p-2">
+                         hello
+                    </Row>
+                    <Row className="mt-3">
+                         <Col>Bloger Id</Col>
+                         <Col>Author Name</Col>
+                         <Col>Prog. Lang</Col>
+                         <Col>Title</Col>
+                         <Col>aproved</Col>
+                         <Col>Other</Col>
+                    </Row>
+                    <hr />
+                    {
+                         data.map((e) => <RowData blog={e} key={e} />)
+                    }
+               </Container>
+          </>
+
      )
 }

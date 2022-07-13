@@ -1,3 +1,5 @@
+// not used any where in the code
+
 import Connection from "../../../Databases/Connection";
 import AllCollections from "../../../Databases/Models";
 const Jwt_secrtet = "sk-programmer";
@@ -48,7 +50,7 @@ const handler = async (req, res) => {
         requestObj.password = secondrypassword;
         const user = await Authority.create(requestObj);
         const data = {
-        authority: {
+          authority: {
             id: user.id,
           },
         };
