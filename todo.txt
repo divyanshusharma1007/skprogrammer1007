@@ -1,12 +1,8 @@
-user Creators's page text and unknow creator's page 
-about page for all 
-like and comment section 
+delte blog 
+like and comment 
+share blog
+about page
+creator's user and other page 
+view blog is do later
 
-delete blog by admin
-home page 
-about page 
-complete responsive design
-make routes private some routes 
-
-//not to done Now 
-responsive desing 
+other functionalies done later 

@@ -4,11 +4,8 @@ import _ from "lodash";
 import { useDispatch, useSelector } from "react-redux";
 import fetchHomeRight from "../../store/actions/homeRightAction";
 import updateHome from "../../store/actions/updateHomeRight";
-export default function homeright() {
 
-  console.log("running the home right")
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state?.homeRight);
+export default function homeright() {
   const initialState = {
     heading: "",
     box: [
@@ -19,11 +16,19 @@ export default function homeright() {
     ],
   };
   const [formData, setFormData] = useState(initialState);
-  // const fetchData = async () => {
-  //   dispatch(await fetchHomeRight());
-  // };
-  // useState(fetchData, []);
-  console.log(state)
+  const FetchBlogs = () => {
+    console.log( 'running fetch blogs');
+    fetchHomeRight(setFormData);
+  };
+  useEffect(FetchBlogs, [])
+  useEffect(()=>console.log(formData, "form data  😍😍😍😍s"),[formData])
+  
+  console.log("running the home right")
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state?.login?.authtoken);
+  console.log(state);
+
+
   // add more boxes function
   const addMore = () => {
     const newFormData = _.cloneDeep(formData);
@@ -43,14 +48,22 @@ export default function homeright() {
     setFormData(newState);
 
   };
+
+  
+
   // on Update form
   const onUpdate = async () => {
-    dispatch(await updateHome(formData));
+    console.log(state,formData,"value < value vaue ")
+    updateHome(state, formData);
+    console.log("home right is updated")
   };
+
+
+
+
+
+
   // setting the state when ther eis a change in the store state
-  useEffect(() => {
-    setFormData(state);
-  }, [state]);
   useEffect(() => {
     console.log(formData, "form data");
   }, [formData]);
@@ -76,7 +89,7 @@ export default function homeright() {
             <Form.Label>Heading</Form.Label>
             <Form.Control
               type="text"
-              value={formData.heading}
+              value={formData?.heading}
               placeholder="welcome"
               onChange={(e) => onChange(e, -1)}
               name="heading"
@@ -94,7 +107,7 @@ export default function homeright() {
                   onChange={(e) => {
                     return onChange(e, index);
                   }}
-                  value={e.heading}
+                  value={e?.heading}
                   type="text"
                   name="heading"
                   placeholder="welcome"
@@ -105,7 +118,7 @@ export default function homeright() {
                   name="description"
                   placeholder="Enter your text here"
                   rows={2}
-                  value={e.description}
+                  value={e?.description}
                   onChange={(e) => {
                     return onChange(e, index);
                   }}

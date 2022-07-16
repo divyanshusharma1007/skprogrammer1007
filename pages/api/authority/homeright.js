@@ -6,51 +6,29 @@ import AllCollections from "../../../Databases/Models";
 import fetchAuthority from '../../../Middlewares/fetchAuthority'
 const handler = async (req, res) => {
   const { HomeRight } = AllCollections();
-
-
-  const authority = fetchAuthority(req, res);
-  if (req.method === "POST") {
-    try {
-      let cn = await HomeRight.find();
-      console.log(cn)
-      if (cn.length === 0) {
-        await HomeRight.create({
-          heading: "welcome",
-          box: [
-            {
-              heading: "bloger",
-              description: "provide the better opportunity to blogers",
-            },
-          ],
-        });
-        let data = await HomeRight.find();
-        res.status(200).json({ success: true, data: data[0] });
+  if (req.method === 'POST') {
+    const authority = fetchAuthority(req, res);
+    if (authority) {
+      const count = await HomeRight.find().count();
+      if (count === 0) {
+        await HomeRight.create(req.body);
+        res.status(200).json("created successfully");
       }
-      if (authority) {
-
-        const id = req.body._id;
-        console.log(id);
-        console.log(req.body, " request body");
-        await HomeRight.findByIdAndUpdate(id, req.body);
-        const data = await HomeRight.findById(id);
-        console.log(data, "data");
-        res.status(200).json({ success: true, data: data });
-      } else {
-        res.statue(400).json({ success: false, data: "unable to update" })
+      else {
+        try {
+          console.log(req.body)
+          await HomeRight.findByIdAndUpdate(req._id, req.body)
+          res.status(200).json("updated successfully")
+        }
+        catch (e) {
+          console.log(e);
+          res.status(400).json("update failed");
+        }
       }
-    } catch (e) {
-      console.error(e);
-      res.status(400).json({ success: false, data: "some error occured" });
     }
   } else {
-    try {
-      const data = await HomeRight.find();
-      console.log(data);
-      res.status(200).json({ success: true, data: data[0] });
-    } catch (e) {
-      res.status(400).json({ success: false, data: "some error occured" });
-    }
+    const data = await HomeRight.find()
+    res.status(200).json({ data: data[0] });
   }
-
 };
 export default Connection(handler);

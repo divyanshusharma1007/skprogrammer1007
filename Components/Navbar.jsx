@@ -20,7 +20,7 @@ export default function NavbarComponent({ conditionAdmin, conditionBloger, authb
      }, [state])
      if (conditionAdmin) {
           if (!(authby === "ADMIN")) {
-               // router.push("/login")
+               router.push("/login")
                console.log("not as authority")
           }
      }
