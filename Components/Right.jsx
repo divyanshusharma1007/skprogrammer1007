@@ -5,12 +5,12 @@ import fetchHomeRight from '../store/actions/homeRightAction'
 export default function Right() {
      const dispatch = useDispatch()
      // fetch data 
+     const [state,setState]=useState({})
      const fetchData = async () => {
-          dispatch(await fetchHomeRight());
+          fetchHomeRight(setState);
      };
      useState(fetchData);
      // main state 
-     const state = useSelector(state => state.homeRight)
      // dummy state
      const arr = state.box;
      // adding effects on the dom
