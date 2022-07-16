@@ -32,12 +32,12 @@ console.log(formData)
      return (
           <>
                <Container className="mx-2">
-                    <div className="bg-white border-3 border border-secondary rounded-3 ">
-                         <Container className="p-3">
-                              <h3 className="text-white fw-bold my-3"> Update your Blog</h3>
+                    <div className="bg-white border-3 border border-secondary rounded-3 text-secondary">
+                         <Container className="p-3 ">
+                              <h3 className="text-secondary fw-bold my-3"> Update your Blog</h3>
                               <Form>
                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label className="fw-bolder text-white">
+                                        <Form.Label className="fw-bolder text-secondary">
                                              Heading
                                         </Form.Label>
                                         <Form.Control
@@ -50,7 +50,7 @@ console.log(formData)
                                    </Form.Group>
                                    <Row>
                                         <Col>
-                                             <h6 className="text-white">approved status</h6>
+                                             <h6 className="text-secondary">approved status</h6>
                                              <select
                                                   onChange={onChange}
                                                   className="form-select mt-4"
@@ -64,7 +64,7 @@ console.log(formData)
                                         </Col>
                                         <Col>
                                              <Form.Group className="mb-3" controlId="formBasicPassword">
-                                                  <Form.Label className="fw-bolder text-white">
+                                                  <Form.Label className="fw-bolder text-secondary">
                                                        Tags
                                                   </Form.Label>
                                                   <Form.Control
@@ -83,7 +83,7 @@ console.log(formData)
                                         </Col>
                                    </Row>
                                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                                        <Form.Label className="fw-bolder text-white">
+                                        <Form.Label className="fw-bolder text-secondary">
                                              Blog Description
                                         </Form.Label>
                                         <Form.Control

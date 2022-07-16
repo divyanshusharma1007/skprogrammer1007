@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchHomeRight from "../../store/actions/homeRightAction";
 import updateHome from "../../store/actions/updateHomeRight";
 export default function homeright() {
+
+  console.log("running the home right")
   const dispatch = useDispatch();
+  const state = useSelector((state) => state?.homeRight);
   const initialState = {
     heading: "",
     box: [
@@ -16,13 +19,11 @@ export default function homeright() {
     ],
   };
   const [formData, setFormData] = useState(initialState);
-  const fetchData = async () => {
-    dispatch(await fetchHomeRight());
-  };
-  //  fetching data
-  useState(fetchData);
-  // geting state form store
-  const state = useSelector((state) => state.homeRight);
+  // const fetchData = async () => {
+  //   dispatch(await fetchHomeRight());
+  // };
+  // useState(fetchData, []);
+  console.log(state)
   // add more boxes function
   const addMore = () => {
     const newFormData = _.cloneDeep(formData);
@@ -40,6 +41,7 @@ export default function homeright() {
       newState.box[i][key] = e.target.value;
     }
     setFormData(newState);
+
   };
   // on Update form
   const onUpdate = async () => {
@@ -52,6 +54,7 @@ export default function homeright() {
   useEffect(() => {
     console.log(formData, "form data");
   }, [formData]);
+
   return (
     <>
       <Container

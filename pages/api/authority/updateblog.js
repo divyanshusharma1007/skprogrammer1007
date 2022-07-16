@@ -4,6 +4,7 @@ import FetchAuthority from '../../../middlewares/fetchAuthority';
 
 const handler = async (req, res) => {
     const authority =await FetchAuthority(req, res);
+    console.log(authority)
     if(authority){
         const {Blogs}=AllCollections();
         try{

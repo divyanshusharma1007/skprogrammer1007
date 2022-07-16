@@ -10,11 +10,11 @@ export default function Right() {
      };
      useState(fetchData);
      // main state 
-     const [width, setWidth] = useState(0);
      const state = useSelector(state => state.homeRight)
      // dummy state
      const arr = state.box;
      // adding effects on the dom
+     const [width, setWidth] = useState(0);
      useEffect(() => { setWidth(window.innerWidth + 20) })
      // returning jsx
      return (

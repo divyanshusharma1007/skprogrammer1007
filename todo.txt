@@ -1,7 +1,7 @@
-like and comment section of all threes
-blogs page
-open blog 
-adding cke editor 
+user Creators's page text and unknow creator's page 
+about page for all 
+like and comment section 
+
 delete blog by admin
 home page 
 about page 

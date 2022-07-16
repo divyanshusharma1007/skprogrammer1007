@@ -1,15 +1,37 @@
 // module designed by himanshu patel , teach module
-import React from 'react'
+import React, { useState } from 'react'
 // functional behavior of the compoent 
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 // importing the bootstrap componets 
 import { Container, Navbar, Nav, Col, Row } from 'react-bootstrap'
+import { useEffect } from 'react'
+import { createRedirectRoute } from 'next/dist/server/server-route-utils'
 
-export default function NavbarComponent() {
+export default function NavbarComponent({ conditionAdmin, conditionBloger, authby, setauthby }) {
+     const [customRoute, setCustomRoute] = useState("/policy")
      const router = useRouter()
+     console.log(router.asPath, "router pateh")
+     const state = useSelector(state => state?.login);
+     useEffect(() => {
+          console.log(state);
+          setauthby(state?.authby)
+     }, [state])
+     if (conditionAdmin) {
+          if (!(authby === "ADMIN")) {
+               // router.push("/login")
+               console.log("not as authority")
+          }
+     }
+
+     if (conditionBloger) {
+          if (!(authby === "BLOGER")) {
+               router.push("/login")
+          }
+     }
      return (
-          <div  style={{ width: '100%',top:'0px', height: "100%" }}>
+          <div style={{ width: '100%', top: '0px', height: "100%" }}>
                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Container>
                          <Navbar.Brand >
@@ -31,7 +53,7 @@ export default function NavbarComponent() {
                               <Nav className="me-auto">
                                    <Link href="/"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}> Home </a></Link>
                                    <Link href="/blogs"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Blogs </a></Link>
-                                   <Link href="/admin/home"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Creators's page</a></Link>
+                                   <Link href={authby === 'ADMIN' ? '/admin/home' : authby === 'BLOGER' ? '/bloger/create' : '/creatorspage'}  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>Creators's page</a></Link>
                                    <Link href="/about"  ><a className="mx-2" style={{ textDecoration: "none", color: 'grey', fontWeight: 'bolder' }}>About </a></Link>
                               </Nav>
                               <Nav>

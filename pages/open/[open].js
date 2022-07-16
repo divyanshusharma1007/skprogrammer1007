@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import _ from 'lodash'
+import { useRouter } from 'next/router'
 import openBlog from '../../store/actions/fetchBlogAction'
+import _ from 'lodash'
 export default function blogs() {
   const [formData, setFormData] = useState({})
+  const router = useRouter()
   const onChange = (e) => {
     const key = e.target.name;
     const value = e.target.value;
@@ -11,24 +13,30 @@ export default function blogs() {
     newState[key] = value;
     setFormData(newState);
   };
-  
+
   const onComment = () => {
 
   }
+  console.log(router.query,"router.query")
+  const FetchBlog = () => {
+   openBlog(router.query.open, setFormData)
+  }
+  useEffect(FetchBlog, [])
+  console.log(formData,"form data");
   return (
     <>
-      <div className='bg-white border border-secondary border-3 rounded-3 p-3 mx-2'>
+      <div className='bg-white border border-secondary border-3 rounded-3 p-3 m-4'>
         <h3 className="text-black fw-bold ">
-          title
+          {formData?.title}
         </h3>
         <p>
-          lorem33
+         {formData?.description}
         </p>
         <div className='d-flex justify-content-between'>
 
         </div>
-        <h6> like</h6>
-        <h6 className='text-end'>~author Name</h6>
+        <h6 className="text-info"> like</h6>
+        <h6 className='text-end'>~ {formData?.authorName}</h6>
         <hr />
         <Form>
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -53,6 +61,12 @@ export default function blogs() {
             </Button>
           </Form.Group>
         </Form>
+        <h6 className='text-primary'>All Comments</h6>
+      <div  className='border border-secondary border-3 rounded-3' style={{height:'30vh'}}>
+        <div className="border border-3 border-gray ">
+          adding commments here 
+        </div>
+      </div>
       </div>
 
     </>

@@ -4,15 +4,17 @@ import { Container, Row, Col, Dropdown } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import fetchallblogsAction from '../../store/actions/fetchallblogsAction'
 import { Form } from 'react-bootstrap'
-const RowData = ({ blog }) => {
 
+const RowData = ({ blog }) => {
+     const state = useSelector(state => state);
+     console.log(state)
      return (
           <Row className="mt-3">
                <Col style={{ overflow: 'auto' }}>{blog?._id || "noen"}</Col>
                <Col>{blog?.authorName || "noen"}</Col>
                <Col>{blog?.programmingLanguage || "noen"}</Col>
                <Col>{blog?.title || "none"}</Col>
-               <Col>{blog?.aproved || "noen"}</Col>
+               <Col>{blog?.aproved.toString() || "noen"}</Col>
                <Col>
                     <Dropdown className="my-2">
                          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
@@ -33,6 +35,7 @@ const RowData = ({ blog }) => {
      )
 }
 export default function blogs() {
+     console.log("runing blogs ")
      const [data, setData] = useState([])
      const state = useSelector(state => state?.login)
      const FetchBlogs = () => {
@@ -40,7 +43,7 @@ export default function blogs() {
           fetchallblogsAction(state?.authtoken, setData);
      };
      console.log(data)
-     useEffect(FetchBlogs,[])
+     useEffect(FetchBlogs, [])
      return (
           <>
                <Container className="bg-white text-secondary fw-bold mx-3 border border-secondary border-3 rounded-3">
