@@ -4,5 +4,8 @@ share blog
 about page
 creator's user and other page 
 view blog is do later
+no need of fetching image
+
+
 
 other functionalies done later 
