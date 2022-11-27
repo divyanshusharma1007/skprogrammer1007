@@ -12,7 +12,7 @@ export default function Right() {
      useState(fetchData);
      // main state 
      // dummy state
-     const arr = state.box;
+     const arr = state?.box ?? [];
      // adding effects on the dom
      const [width, setWidth] = useState(0);
      useEffect(() => { setWidth(window.innerWidth + 20) })
@@ -20,7 +20,7 @@ export default function Right() {
      return (
           <div style={{ width: '38vw', display: `${width < 800 ? "none" : "block"}` }}>
                <div className="p-3 mr-3 border border-3 m-3 border-secondary" style={{ borderRadius: '54px 0% 54px 0%', backgroundColor: 'white' }}>
-                    <h2 className="mx-sm-3">{state.heading}</h2>
+                    <h2 className="mx-sm-3">{state?.heading}</h2>
                     {
                          arr.map((obj, i) => {
                               return <Description node={obj} key={i} />
